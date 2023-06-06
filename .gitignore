@@ -1,0 +1,7 @@
+.DS_STORE
+*.csv
+*.fig
+*.png
+*.mat
+*.lyx
+*.lyx~
