@@ -15,18 +15,18 @@ t0 = t(v0_max_index);
 tn = t(vn_max_index);
 
  
-fig = figure;
-hold on 
-plot(t, v0);
-plot(t, vn);
-quiver(t0, v0_max_value, tn - t0 , v0_max_value - v0_max_value, 0, 'LineWidth', 1.5);
-hold off
-legend({"v0", "vn"})
-title(name)
-
-% mkdir fig
-% savefig(fig, fullfile('fig', name + ".fig"))
-saveas(gcf, fullfile('fig', name + ".png"))
+% fig = figure;
+% hold on 
+% plot(t, v0);
+% plot(t, vn);
+% quiver(t0, v0_max_value, tn - t0 , v0_max_value - v0_max_value, 0, 'LineWidth', 1.5);
+% hold off
+% legend({"v0", "vn"})
+% title(name)
+% 
+% % mkdir fig
+% % savefig(fig, fullfile('fig', name + ".fig"))
+% saveas(gcf, fullfile('fig', name + ".png"))
 
 
 % 28, 26, 24, 22, 20, 18*, 16, 14

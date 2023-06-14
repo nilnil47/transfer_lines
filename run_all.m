@@ -16,9 +16,13 @@ levels = [0 1 10 12 14 16 18 2 20 22 24 26 28 30 4 6 8];
 levels = sort(levels);
 phases = sort(phases);
 %% 
+figure
+errorbars
 plot(levels, phases, '*');
 ylabel('n \cdot \beta');
 xlabel('n');
+saveas(gcf, fullfile('fig', "beta_n.png"))
+
 
 
 %%
@@ -51,8 +55,9 @@ betas = sin(phases / 2);
 
 hold on
 plot(omegas, phases, '*');
-beta_theory = 2 * asin ( omega * sqrt(L*C) / 2 )
+% beta_theory = 2 * asin ( omega * sqrt(L*C) / 2 )
 % plot(omegas, 2 * asin ( omegas * sqrt(L*C) / 2 ), 'r-');
 hold off
 ylabel('n \cdot \beta');
 xlabel('n');
+saveas(gcf, fullfile('fig', "phases.png"))
