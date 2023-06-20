@@ -1,0 +1,745 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2299.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE HTML&gt;</p>
+<p class="p1">&lt;html&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Fabry-Perot Optical Cavity&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="stylesheet" href="bootstrap_darkly.min.css"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style type="text/css"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>html,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>/* overflow: hidden; */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.slidecontainer {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.slider {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>-webkit-appearance: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 40%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 25px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>outline: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.7;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>-webkit-transition: .2s;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: opacity .2s;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.slider:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>opacity: 1;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.slider::-webkit-slider-thumb {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>-webkit-appearance: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>appearance: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 25px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 25px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #FFDD99;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.slider::-moz-range-thumb {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 25px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 25px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #FFDD99;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="math.js" type="text/javascript"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script type="text/x-mathjax-config"&gt;MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script async src="https://www.googletagmanager.com/gtag/js?id=UA-111832592-1"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.dataLayer = window.dataLayer || [];</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function gtag(){dataLayer.push(arguments);}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>gtag('js', new Date());</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>gtag('config', 'UA-111832592-1');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1 id="titleText" class="text-center"&gt;Fabry-Perot Optical Cavity&lt;/h1&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h4 id="headerText" class="text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">             </span>Move the mirrors below around to try and lock the Fabry-Perot cavity!<span class="Apple-converted-space">  </span>The larger the optical gain, the better!</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p id="bothMirrorRefl" class="text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label id="mirrorOneText"&gt;Mirror One Reflectivity $r_1$:&amp;nbsp; &lt;span id="mirror1refl"&gt;&lt;/span&gt;&lt;/label&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label id="mirrorTwoText"&gt;Mirror Two Reflectivity $r_2$:&amp;nbsp; &lt;span id="mirror2refl"&gt;&lt;/span&gt;&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="slidecontainer"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input id="MirrorOneReflectivity" type="range" class="slider" min=0 max=1.0 step=0.01 value=0.9 &gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input id="MirrorTwoReflectivity" type="range" class="slider" min=0 max=1.0 step=0.01 value=0.9 &gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button type="button" class="btn btn-info btn-block" onclick="lockCavity()" id="lockerButton"&gt;Lock Cavity&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 id="cavityLockedText"&gt;&amp;nbsp;&lt;span id="cavityLocked"&gt;&lt;/span&gt;&lt;/h2&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;canvas id="c"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>This text is displayed if your browser does not support HTML5 canvas</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/canvas&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="text-center"&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label id="cavityLengthText"&gt;Cavity Length $L$:&amp;nbsp; &lt;span id="cavityLength"&gt;&lt;/span&gt;&lt;/label&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label id="wavenumberText"&gt;Wavenumber $k = \dfrac{2 \pi}{\lambda}$:&amp;nbsp; &lt;span id="laserWavenumber"&gt;&lt;/span&gt;&lt;/label&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label id="phaseText"&gt;Phase $\phi = k L \,\, \mathrm{mod}\,\, 2\pi$:&amp;nbsp; &lt;span id="laserPhase"&gt;&lt;/span&gt;&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label id="opticalGainText"&gt;Optical Gain $\left|\dfrac{E_\mathrm{circ}}{E_\mathrm{inc}}\right| = \left|\dfrac{t_1}{1 - r_1 r_2 e^{2 i k L}}\right|$:&amp;nbsp; &lt;span id="opticalGain"&lt;/span&gt;&lt;/label&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label id="opticalGainMaxText"&gt;Optical Gain $\mathrm{Max}\left|\dfrac{E_\mathrm{circ}}{E_\mathrm{inc}}\right| = \left|\dfrac{t_1}{1 - r_1 r_2}\right|$:&amp;nbsp; &lt;span id="opticalGainMax"&lt;/span&gt;&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label id="reflText"&gt;Reflected Gain $\left|\dfrac{E_\mathrm{refl}}{E_\mathrm{inc}}\right| = \left|\dfrac{-r_1 + r_2 e^{2 i k L}}{1 - r_1 r_2 e^{2 i k L}}\right|$:&amp;nbsp; &lt;span id="reflGain"&lt;/span&gt;&lt;/label&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label id="transText"&gt;Transmitted Gain $\left|\dfrac{E_\mathrm{trans}}{E_\mathrm{inc}}\right| = \left|\dfrac{t_1 t_2 e^{i k L}}{1 - r_1 r_2 e^{2 i k L}}\right|$:&amp;nbsp; &lt;span id="transGain"&lt;/span&gt;&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label id="finesseText"&gt;Cavity Finesse $\mathcal{F} = \dfrac{\mathrm{FSR}}{\mathrm{FWHM}} = \dfrac{\pi}{2 \arcsin{\left( \dfrac{1 - r_1 r_2}{2 \sqrt{r_1 r_2}}\right)}}$:&amp;nbsp; &lt;span id="finesse"&gt;&lt;/span&gt;&lt;/label&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label id="cavityCouplingText"&gt;The cavity is &lt;i&gt;&lt;span id="cavityCoupling"&gt;&lt;/span&gt;&lt;/i&gt;.&lt;/label&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!--&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"&gt;&lt;/script&gt; --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;A laser is incident on two aligned mirrors. If the optics are an integer number of laser wavelengths away from one another, the laser will constructively interfere inside the optical cavity. This constructive interference amplifies the laser power in the cavity.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;In LIGO, both four kilometer long arms consist of Fabry-Perot cavities. When the LIGO detector arms achieve laser power amplification, the arms are "on resonance" or "locked". A locked LIGO detector is hyper-sensitive to minute motions in its arm lengths; small mirror motions will move the optics off resonance and phase-shift light out of the interferometer arm cavities.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;<span class="Apple-converted-space">       </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The incident light $E_\mathrm{inc}$ comes into the cavity from the left.<span class="Apple-converted-space">  </span>At the correct cavity length, the light circulating $E_\mathrm{circ}$ is constructively interfering.<span class="Apple-converted-space">  </span>Light exits the cavity in transmission $E_\mathrm{trans}$ out the right.<span class="Apple-converted-space">  </span>Light reflected off the cavity $E_\mathrm{refl}$ moves left and creates a standing wave with the incident light.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If $r_1 &gt; r_2$, the cavity is &lt;i&gt;under-coupled&lt;/i&gt;.<span class="Apple-converted-space">  </span>If $r_1 &lt; r_2$, the cavity is &lt;i&gt;over-coupled&lt;/i&gt;.<span class="Apple-converted-space">  </span>If $r_1 = r_2$, the cavity is &lt;i&gt;critically-coupled&lt;/i&gt;.<span class="Apple-converted-space">  </span>Critically-coupled cavities have the unintuitive property that when the round-trip cavity length is equal to an integer number of laser wavelengths, $2 L = n \lambda$, all light incident on the cavity is fully transmitted: no light is reflected at all.<span class="Apple-converted-space">  </span>This is due to interference: all light that would be reflected destructively interferes with itself, leaving only transmitted light.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The LIGO interferometer has over-coupled cavities for arms, with reflectivities $r_1^2 = 98.6$% and $r_2^2 = 99.9999$% enhancing the light resonanting in the arms.<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;script type="text/javascript"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>String.prototype.format = String.prototype.f = function() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var str = this,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>i = arguments.length;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>while (i--) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>str = str.replace(new RegExp('\\{' + i + '\\}', 'gm'), arguments[i]);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return str;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Color computed text</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("titleText").style.color = '#E57254';<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("headerText").style.color = '#E57254';<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("cavityLockedText").style.color = '#CC0000';<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("cavityLengthText").style.color = '#99CCFF';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("wavenumberText").style.color = '#99CCFF';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("phaseText").style.color = '#99CCFF';</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("opticalGainText").style.color = '#FFDD99';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("opticalGainMaxText").style.color = '#FFDD99';</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("reflText").style.color = '#52D273';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("transText").style.color = '#52D273';</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("finesseText").style.color = '#E57254';<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("cavityCouplingText").style.color = '#C0C0C0';</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("mirrorOneText").style.color = '#FFDD99';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("mirrorTwoText").style.color = '#FFDD99';</p>
+<p class="p2"><span class="Apple-converted-space">           </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>var widthScale = 0.97;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>var heightScale = 0.4;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>var isLocked;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>var c = document.getElementById('c'),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ctx = c.getContext('2d'),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>cw = ctx.canvas.width<span class="Apple-converted-space">  </span>= Math.round(widthScale<span class="Apple-converted-space">  </span>* window.innerWidth),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ch = ctx.canvas.height = Math.round(heightScale * window.innerHeight),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>//cw = window.innerWidth,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>//ch = window.innerHeight,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>points = [],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>tick = 0,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>opt = {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>count: 400,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>freq: 2.0 * Math.PI * 0.01,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>wavenumber: 2.0 * Math.PI / 200.0,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>amplitude: 15.0,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>range: {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>x1: 0,</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>x2: 1000,</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>y: 300</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>},</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>mirror1: {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>left: 0.2 * cw,</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>right: 0.4 * cw,</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>init: 0.3 * cw,</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>width: 100,</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>height: 225,</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>refl: 0.9</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>},</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>mirror2: {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>left: 0.6 * cw,</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>right: 0.8 * cw,</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>init: 0.7 * cw,</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>width: 100,</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>height: 225,</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>refl: 0.9</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>},</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>duration: {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>min: 20,</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>max: 40</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>},</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>thickness: 4,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>radius: 1,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>strokeColor: '#e50000',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>level: 0.5,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>scaler: 1.0,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>curved: true</p>
+<p class="p1"><span class="Apple-converted-space">                </span>};</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Sliders<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>var slider1 = document.getElementById("MirrorOneReflectivity");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>var slider2 = document.getElementById("MirrorTwoReflectivity");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>var output1 = document.getElementById("mirror1refl");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>var output2 = document.getElementById("mirror2refl");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>output1.innerHTML = slider1.value;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>output2.innerHTML = slider2.value;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>var r1 = slider1.defaultValue = opt.mirror1.refl;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>var r2 = slider2.defaultValue = opt.mirror2.refl;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>var t1 = Math.sqrt(1.0 - Math.pow(r1, 2));<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>var t2 = Math.sqrt(1.0 - Math.pow(r2, 2)); // define reflectivities and transmissions</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>slider1.oninput = function() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>output1.innerHTML = this.value;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>r1 = this.value;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>t1 = Math.sqrt(1.0 - Math.pow(r1, 2));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>slider2.oninput = function() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>output2.innerHTML = this.value;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>r2 = this.value;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>t2 = Math.sqrt(1.0 - Math.pow(r2, 2)); <span class="Apple-converted-space">           </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><span class="Apple-converted-space">             </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>ctx.lineJoin = '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>ctx.lineWidth = opt.thickness;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>ctx.strokeStyle = opt.strokeColor;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Code copied from Simon Sarris</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// www.simonsarris.com</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// sarris@acm.org</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Constructor for Shape objects to hold data for all drawn objects.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// For now they will just be defined as rectangles.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>function Shape(name, x, y, w, h, fill, xmin, xmax) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// This is a very simple and unsafe constructor. All we're doing is checking if the values exist.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// "x || 0" just means "if there is a value for x, use that. Otherwise use 0."</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// But we aren't checking anything else! We could put "Lalala" for the value of x<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.name = name || 'rect';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.x = x || 0;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.y = y || 0;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.w = w || 1;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.h = h || 1;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.fill = fill || '#AAAAAA';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.xmin = xmin || 0;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.xmax = xmax || 100;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Draws this shape to a given context</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Shape.prototype.draw = function(ctx) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ctx.fillStyle = this.fill;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ctx.fillRect(this.x, this.y, this.w, this.h);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Determine if a point is inside the shape's bounds</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Shape.prototype.contains = function(mx, my) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// All we have to do is make sure the Mouse X,Y fall in the area between</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// the shape's X and (X + Width) and its Y and (Y + Height)</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return (this.x &lt;= mx) &amp;&amp; (this.x + this.w &gt;= mx) &amp;&amp;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>(this.y &lt;= my) &amp;&amp; (this.y + this.h &gt;= my);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>function CanvasState(canvas) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// **** First some setup! ****</p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.canvas = canvas;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.width = canvas.width;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.height = canvas.height;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.ctx = canvas.getContext('2d');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// This complicates things a little but but fixes mouse co-ordinate problems</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// when there's a border or padding. See getMouse for more detail</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var stylePaddingLeft, stylePaddingTop, styleBorderLeft, styleBorderTop;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (document.defaultView &amp;&amp; document.defaultView.getComputedStyle) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>this.stylePaddingLeft = parseInt(document.defaultView.getComputedStyle(canvas, null)['paddingLeft'], 10) || 0;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>this.stylePaddingTop = parseInt(document.defaultView.getComputedStyle(canvas, null)['paddingTop'], 10) || 0;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>this.styleBorderLeft = parseInt(document.defaultView.getComputedStyle(canvas, null)['borderLeftWidth'], 10) || 0;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>this.styleBorderTop = parseInt(document.defaultView.getComputedStyle(canvas, null)['borderTopWidth'], 10) || 0;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Some pages have fixed-position bars (like the stumbleupon bar) at the top or left of the page</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// They will mess up mouse coordinates and this fixes that</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var html = document.body.parentNode;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.htmlTop = html.offsetTop;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.htmlLeft = html.offsetLeft;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// **** Keep track of state! ****</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.valid = false; // when set to false, the canvas will redraw everything</p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.shapes = []; // the collection of things to be drawn</p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.dragging = false; // Keep track of when we are dragging</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// the current selected object. In the future we could turn this into an array for multiple selection</p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.selection = null;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.dragoffx = 0; // See mousedown and mousemove events for explanation</p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.dragoffy = 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// **** Then events! ****</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// This is an example of a closure!</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Right here "this" means the CanvasState. But we are making events on the Canvas itself,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// and when the events are fired on the canvas the variable "this" is going to mean the canvas!</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Since we still want to use this particular CanvasState in the events we have to save a reference to it.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// This is our reference!</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var myState = this;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>//fixes a problem where double clicking causes text to get selected on the canvas</p>
+<p class="p1"><span class="Apple-converted-space">                </span>canvas.addEventListener('selectstart', function(e) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>e.preventDefault();</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>return false;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}, false);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Up, down, and move are for dragging</p>
+<p class="p1"><span class="Apple-converted-space">                </span>canvas.addEventListener('mousedown', function(e) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>var mouse = myState.getMouse(e);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>var mx = opt.scaler * mouse.x;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>var my = opt.scaler * mouse.y;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>var shapes = myState.shapes;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>var l = shapes.length;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>for (var i = l - 1; i &gt;= 0; i--) {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>if (shapes[i].contains(mx, my)) {</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>var mySel = shapes[i];</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>// Keep track of where in the object we clicked</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>// so we can move it smoothly (see mousemove)</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>myState.dragoffx = mx - mySel.x;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>myState.dragoffy = my - mySel.y;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>myState.dragging = true;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>myState.selection = mySel;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>myState.valid = false;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>// havent returned means we have failed to select anything.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>// If there was an object selected, we deselect it</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (myState.selection) {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>myState.selection = null;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>myState.valid = false; // Need to clear the old selection border</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}, true);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>canvas.addEventListener('mousemove', function(e) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (myState.dragging) {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>var mouse = myState.getMouse(e);</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>// We don't want to drag the object by its top-left corner, we want to drag it</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>// from where we clicked. Thats why we saved the offset and use it here</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>var currentX = opt.scaler * mouse.x - myState.dragoffx;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>if (currentX &lt; myState.selection.xmin) {</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>myState.selection.x = myState.selection.xmin;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>} else if (currentX &gt;= myState.selection.xmax) {</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>myState.selection.x = myState.selection.xmax;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>} else { <span class="Apple-converted-space">               </span></p>
+<p class="p1"><span class="Apple-converted-space">                            </span>myState.selection.x = currentX;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>//myState.selection.y = opt.scaler * mouse.y - myState.dragoffy;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>myState.valid = false; // Something's dragging so we must redraw</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}, true);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>canvas.addEventListener('mouseup', function(e) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>myState.dragging = false;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}, true);</p>
+<p class="p2"><span class="Apple-converted-space">               </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Added mobile touch support from this truly excellent site:</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// http://bencentra.com/code/2014/12/05/html5-canvas-touch-events.html<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Prevent scrolling when touching the canvas</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.body.addEventListener("touchstart", function (e) {</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>if (e.target == canvas) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>e.preventDefault();</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}, false);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.body.addEventListener("touchend", function (e) {</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>if (e.target == canvas) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>e.preventDefault();</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}, false);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.body.addEventListener("touchmove", function (e) {</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>if (e.target == canvas) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>e.preventDefault();</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}, false);</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Set up touch events for mobile, etc</p>
+<p class="p1"><span class="Apple-converted-space">                </span>canvas.addEventListener("touchstart", function (e) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>mousePos = getTouchPos(canvas, e);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>var touch = e.touches[0];</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>var mouseEvent = new MouseEvent("mousedown", {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>clientX: touch.clientX,</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>clientY: touch.clientY</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>});</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>canvas.dispatchEvent(mouseEvent);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}, false);</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>canvas.addEventListener("touchend", function (e) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>var mouseEvent = new MouseEvent("mouseup", {});</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>canvas.dispatchEvent(mouseEvent);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}, false);</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>canvas.addEventListener("touchmove", function (e) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>var touch = e.touches[0];</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>var mouseEvent = new MouseEvent("mousemove", {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>clientX: touch.clientX,</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>clientY: touch.clientY</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>});</p>
+<p class="p1"><span class="Apple-converted-space">                </span>canvas.dispatchEvent(mouseEvent);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}, false);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Get the position of a touch relative to the canvas</p>
+<p class="p1"><span class="Apple-converted-space">                </span>function getTouchPos(canvasDom, touchEvent) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>var rect = canvasDom.getBoundingClientRect();</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>return {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>x: touchEvent.touches[0].clientX - rect.left,</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>y: touchEvent.touches[0].clientY - rect.top</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>};</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// **** Options! ****</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.selectionColor = '#CC0000';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.selectionWidth = 4;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.interval = 15;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>setInterval(function() {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>myState.draw();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}, myState.interval);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>CanvasState.prototype.addShape = function(shape) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.shapes.push(shape);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.valid = false;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>CanvasState.prototype.clear = function() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.ctx.clearRect(0, 0, this.width, this.height);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// While draw is called as often as the INTERVAL variable demands,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// It only ever does something if the canvas gets invalidated by our code</p>
+<p class="p1"><span class="Apple-converted-space">            </span>CanvasState.prototype.draw = function() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// if our state is invalid, redraw and validate!</p>
+<p class="p1"><span class="Apple-converted-space">                </span>//if (!this.valid) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var ctx = this.ctx;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var shapes = this.shapes;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.clear();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// ** Add stuff you want drawn in the background all the time here **</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// draw all shapes</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var l = shapes.length;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>for (var i = 0; i &lt; l; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>var shape = shapes[i];</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>// We can skip the drawing of elements that have moved off the screen:</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (shape.x &gt; this.width || shape.y &gt; this.height ||</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>shape.x + shape.w &lt; 0 || shape.y + shape.h &lt; 0) continue;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>shapes[i].draw(ctx);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// draw selection</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// right now this is just a stroke along the edge of the selected Shape</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (this.selection != null) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>ctx.strokeStyle = this.selectionColor;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>ctx.lineWidth = this.selectionWidth;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>var mySel = this.selection;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>ctx.strokeRect(mySel.x, mySel.y, mySel.w, mySel.h);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// ** Add stuff you want drawn on top all the time here **</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.valid = true;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>//}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Creates an object with x and y defined, set to the mouse position relative to the state's canvas</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// If you wanna be super-correct this can be tricky, we have to worry about padding and borders</p>
+<p class="p1"><span class="Apple-converted-space">            </span>CanvasState.prototype.getMouse = function(e) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var element = this.canvas,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>offsetX = 0,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>offsetY = 0,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>mx, my;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Compute the total offset</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (element.offsetParent !== undefined) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>do {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>offsetX += element.offsetLeft;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>offsetY += element.offsetTop;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>} while ((element = element.offsetParent));</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Add padding and border style widths to offset</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Also add the &lt;html&gt; offsets in case there's a position:fixed bar</p>
+<p class="p1"><span class="Apple-converted-space">                </span>offsetX += this.stylePaddingLeft + this.styleBorderLeft + this.htmlLeft;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>offsetY += this.stylePaddingTop + this.styleBorderTop + this.htmlTop;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>mx = e.pageX - offsetX;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>my = e.pageY - offsetY;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// We return a simple javascript object (a hash) with x and y defined</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>x: mx,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>y: my</p>
+<p class="p1"><span class="Apple-converted-space">                </span>};</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// If you dont want to use &lt;body onLoad='init()'&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// You could uncomment this init() reference and place the script reference inside the body tag</p>
+<p class="p1"><span class="Apple-converted-space">            </span>//init();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>function init() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>colorStr1 = 'rgba(135, 206, 250, {0})'.format(0.9);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>colorStr2 = 'rgba(135, 206, 250, {0})'.format(0.9);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>s.addShape(new Shape('mirror1', opt.mirror1.init, ch * opt.level - opt.mirror1.height/2, opt.mirror1.width,<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                                     </span>opt.mirror1.height, colorStr1, opt.mirror1.left, opt.mirror1.right));</p>
+<p class="p1"><span class="Apple-converted-space">                </span>s.addShape(new Shape('mirror2', opt.mirror2.init, ch * opt.level - opt.mirror2.height/2, opt.mirror2.width,<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                                     </span>opt.mirror2.height, colorStr2, opt.mirror2.left, opt.mirror2.right));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>var Point = function(config) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.anchorX = config.x;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.anchorY = config.y;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.x = config.x;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.y = config.y;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>Point.prototype.update = function() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// incident light E0 going right and E0m going left<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>var E0<span class="Apple-converted-space">  </span>= math.complex({r: opt.amplitude, phi: opt.freq * tick - k * (this.x - mirror1front) + Math.PI / 2.0});</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var E0m = math.complex({r: opt.amplitude, phi: opt.freq * tick + k * (this.x - mirror1front) - Math.PI / 2.0});</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var E3 = math.multiply(E0m, E3h); // refl<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>var E1 = math.multiply(E0, E1h);<span class="Apple-converted-space">  </span>// cavity right</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var E2 = math.multiply(E0m, E2h); // cavity left</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var E4 = math.multiply(E0, E4h);<span class="Apple-converted-space">  </span>// trans</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>this.y = this.anchorY;<span class="Apple-converted-space">                 </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (this.x &lt; mirror1front) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>this.y += math.add(E0, E3).re;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} else if (mirror1front &lt;= this.x &amp;&amp; this.x &lt; mirror2front ) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>this.y += math.add(E1, E2).re;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>this.y += E4.re;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>Point.prototype.render = function() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ctx.beginPath();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ctx.arc(this.x, this.y, opt.radius, 0, Math.PI * 2, false);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ctx.fillStyle = '#000';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ctx.fill();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>var computeElectricFields = function() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Define the Fabry-Perot electric field equation solutions</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var mirror1,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>mirror2;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// draw all shapes</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var l = s.shapes.length;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>for (var i = 0; i &lt; l; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>var shape = s.shapes[i];</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (shape.name === 'mirror1') {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>mirror1 = shape;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>} else if (shape.name === 'mirror2') {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>mirror2 = shape;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}<span class="Apple-converted-space">                 </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>mirror1front = mirror1.x + mirror1.w;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>mirror2front = mirror2.x;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>var dist = mirror2front - mirror1front;</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// common demoninator for FP transfer functions: 1 - r1*r2*e^(i*2*k*L)</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var a0 = math.complex(1.0, 0);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var b0 = math.complex({r: -r1 * r2, phi: -2.0 * k * dist});<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>var denom = math.add(a0, b0);</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// REFL</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var a3 = math.complex(-r1, 0);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var b3 = math.complex({r: r2, phi: -2.0 * k * dist});</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var numer3 = math.add(a3, b3);<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>E3h = math.divide(numer3, denom);<span class="Apple-converted-space">             </span></p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// CAV RIGHT</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var numer1 = math.complex({r: t1, phi: 0.0}); //start at mirror1 front, not mirror2 front</p>
+<p class="p1"><span class="Apple-converted-space">                </span>E1h = math.divide(numer1, denom);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// CAV LEFT</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var numer2 = math.complex({r: r2 * t1, phi: -2.0 * k * dist}); //start at mirror2 front,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>E2h = math.divide(numer2, denom);</p>
+<p class="p2"><span class="Apple-converted-space">               </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// TRANS<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>var numer4 = math.complex({r: t1 * t2, phi: 0.0});</p>
+<p class="p1"><span class="Apple-converted-space">                </span>E4h = math.divide(numer4, denom); <span class="Apple-converted-space">               </span></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>var optGain = math.divide(t1, denom).abs();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var optGainMax = t1/(1.0 - r1 * r2);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var phase = k * dist % (2.0 * Math.PI); // removed Math.PI from phase and modulation</p>
+<p class="p1"><span class="Apple-converted-space">                </span>//var expPhase = math.complex({r: 1.0, phi: 2.0 * k * dist}).re;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>var finesse = Math.PI / (2.0 * Math.asin((1.0 - r1 * r2)/(2.0 * Math.sqrt(r1 * r2))));<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>var reflGain = E3h.abs();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var transGain = E4h.abs();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (optGain &lt; 0.0000001) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>optGain = 0;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (reflGain &lt; 0.0000001) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>reflGain = 0;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (transGain &lt; 0.0000001) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>transGain = 0;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>var cavityCoupling;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (Math.abs(r1 - r2) &lt; 0.0001) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>cavityCoupling = "critically-coupled";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} else if ( r1 - r2 &gt; 0.0) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>cavityCoupling = "under-coupled";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>cavityCoupling = "over-coupled";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                 </span>// Find closest resonance k*L/pi mod 1 === 0</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var phaseOffset = k * dist / Math.PI; // Ideally, this should be an integer, but probably isn't.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var phaseResonance = Math.round(phaseOffset); // round to the nearest int</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var phaseResidual = phaseOffset - phaseResonance;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (Math.abs(phaseResidual) &lt; 0.0000001) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>cavityLockedText = "Cavity Locked!";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>cavityLockedText = "&amp;nbsp;";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p2"><span class="Apple-converted-space">               </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById("cavityLength").innerHTML = (dist).toPrecision(4);<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById("cavityLockedText").innerHTML = cavityLockedText;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById("opticalGain").innerHTML = (optGain).toPrecision(4);<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById("opticalGainMax").innerHTML = (optGainMax).toPrecision(4);<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById("laserWavenumber").innerHTML = (k).toPrecision(3);<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById("laserPhase").innerHTML = (phase).toPrecision(4); <span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById("finesse").innerHTML = (finesse).toPrecision(4); <span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById("cavityCoupling").innerHTML = cavityCoupling; <span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById("reflGain").innerHTML = (reflGain).toPrecision(4); <span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById("transGain").innerHTML = (transGain).toPrecision(4); <span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>var lockCavity = function() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Define the Fabry-Perot electric field equation solutions</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var mirror1,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>mirror2;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// draw all shapes</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var l = s.shapes.length;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>for (var i = 0; i &lt; l; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>var shape = s.shapes[i];</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (shape.name === 'mirror1') {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>mirror1 = shape;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>} else if (shape.name === 'mirror2') {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>mirror2 = shape;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}<span class="Apple-converted-space">                 </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>mirror1front = mirror1.x + mirror1.w;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>mirror2front = mirror2.x;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>var dist = mirror2front - mirror1front;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Find closest resonance k*L/pi mod 1 === 0</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var phaseOffset = k * dist / Math.PI; // Ideally, this should be an integer, but probably isn't.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var phaseResonance = Math.round(phaseOffset); // round to the nearest int</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var phaseResidual = phaseOffset - phaseResonance;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var mirror2adjustment = Math.PI * phaseResidual / k;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>mirror2.x -= mirror2adjustment; //Move mirror2 to the calculated position</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>var updatePoints = function() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var i = points.length;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>while (i--) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>points[i].update();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>var renderPoints = function() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var i = points.length;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>while (i--) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>points[i].render();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>var renderShape = function() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ctx.beginPath();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var pointCount = points.length;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ctx.moveTo(points[0].x, points[0].y);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var i;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>for (i = 0; i &lt; pointCount - 1; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>ctx.lineTo(points[i].x, points[i].y);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ctx.stroke();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>var clear = function() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ctx.clearRect(0, 0, cw, ch);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>var loop = function() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>//clear();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>window.requestAnimFrame(loop, c);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>tick++;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (tick &gt; 100000) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>tick = 0;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>computeElectricFields();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>updatePoints();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>renderShape();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>//renderPoints();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>var i = opt.count;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>var spacing = cw / opt.count;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>while (i--) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>points.push(new Point({</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>x: spacing * i,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>y: ch * opt.level</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>window.requestAnimFrame = function() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function(a) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>window.setTimeout(a, 1E3 / 60)</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Create global CanvasState</p>
+<p class="p1"><span class="Apple-converted-space">            </span>var s = new CanvasState(c);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Create global electric fields</p>
+<p class="p1"><span class="Apple-converted-space">            </span>var E1h, E2h, E3h, E4h;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>var mirror1front, mirror2front;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>var k = opt.wavenumber;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>init();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>loop();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/script&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+</body>
+</html>
